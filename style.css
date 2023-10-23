@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #d9f99d;
+    text-align: center;
+    font-size: larger;
+    height: 6rem;
+}
+
+.addBook {
+    height: 2rem;
+    width: 5rem;
+    border-radius: 1rem;
+}
+
