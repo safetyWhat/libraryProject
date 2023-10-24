@@ -10,7 +10,7 @@ Provide a button with each listing to remove the book from the library.
 
 Add Book:
 onClick - pop up to complete book info
-onSubmit - Add book object to array
+onSubmit - Add book object to array (js function built)
 addCard to library that displays book info
 -Green card is book that has been read
 -Red card is unread book

@@ -10,8 +10,17 @@ function Book(title, author, pages, read) {
     }
   }
 
-  function addBookToLibrary() {
-    
+  function addBookToLibrary(title, author, pages, read) {
+    myLibrary.push({
+      title : title,
+      author : author,
+      pages : pages,
+      read : read
+    })
   }
   
-  const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", "295 pages", "have read")
+  addBookToLibrary("The Hobbit", "J.R.R. Tolkien", "295 pages", "Read")
+  addBookToLibrary("The Lord of the Rings", "J.R.R. Tolkien", "Too Many", "Reading")
+
+  console.log(myLibrary)
+
