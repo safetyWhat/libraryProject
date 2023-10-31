@@ -22,12 +22,15 @@ function Book(title, author, pages, read) {
 
   const dialog = document.querySelector("dialog");
   const showButton = document.querySelector("button");
-  const closeButton = document.querySelector("dialog button");
+  const closeButton = document.querySelector("dialog #submit");
+  const form = document.querySelector("form")
 
   showButton.addEventListener("click", () => {
     dialog.showModal();
   });
 
-  closeButton.addEventListener("click", () => {
-    dialog.close();
-  });
+  document.getElementById('submit').addEventListener('click', function(event) {
+      event.preventDefault();
+      dialog.close();
+    })
+   
