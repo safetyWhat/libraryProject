@@ -5,14 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Library</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer ></script>
 </head>
 <body>
+   
     <div class="header">
         <h1 class="title">My Library</h1>
         <button class="addBook">Add Book</button>
     </div>
     <div class="container"></div>
-    
+     <dialog class="addBookBox">
+        <h3>New Book Entry</h3>
+        <form action="">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" autofocus>
+            <label for="author">Author</label>
+            <input type="text" name="author" id="author">
+            <label for="pages">Number of Pages</label>
+            <input type="number" name="pages" id="pages">
+            <label for="read">Have you read this book?</label>
+            <select name="read" id="read">
+                <option value="read">Have read</option>
+                <option value="unread">Have not read</option>
+                <option value="reading">Currently reading</option>
+            </select>
+            <button>Submit</button>
+        </form>
+    </dialog>
 </body>
 </html>

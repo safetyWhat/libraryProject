@@ -9,7 +9,8 @@ Provide a button with each listing to remove the book from the library.
 (Possibly add a button to toggle whether the book has been read.)
 
 Add Book:
-onClick - pop up to complete book info
+onClick - pop up to complete book info (use the HTML dialogue element to do this using a modal. In js -> HTMLDialogElement.show())
+    Did this via dialog.showModal() in js. 
 onSubmit - Add book object to array (js function built)
 addCard to library that displays book info
 -Green card is book that has been read

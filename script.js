@@ -5,18 +5,14 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function() {
-      return `${title} by ${author}, ${pages}, ${read}`;
+    this.changeStatus = function(status) {
+      this.read = status
     }
   }
 
   function addBookToLibrary(title, author, pages, read) {
-    myLibrary.push({
-      title : title,
-      author : author,
-      pages : pages,
-      read : read
-    })
+    let newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook)
   }
   
   addBookToLibrary("The Hobbit", "J.R.R. Tolkien", "295 pages", "Read")
@@ -24,3 +20,14 @@ function Book(title, author, pages, read) {
 
   console.log(myLibrary)
 
+  const dialog = document.querySelector("dialog");
+  const showButton = document.querySelector("button");
+  const closeButton = document.querySelector("dialog button");
+
+  showButton.addEventListener("click", () => {
+    dialog.showModal();
+  });
+
+  closeButton.addEventListener("click", () => {
+    dialog.close();
+  });
