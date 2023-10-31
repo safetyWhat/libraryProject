@@ -10,8 +10,8 @@ Provide a button with each listing to remove the book from the library.
 
 Add Book:
 onClick - pop up to complete book info (use the HTML dialogue element to do this using a modal. In js -> HTMLDialogElement.show())
-    Did this via dialog.showModal() in js. 
-onSubmit - Add book object to array (js function built)
+    Did this via dialog.showModal() in js. COMPLETE
+onSubmit - Add book object to array (js function built) COMPLETE
 addCard to library that displays book info
 -Green card is book that has been read
 -Red card is unread book
@@ -19,3 +19,6 @@ addCard to library that displays book info
 
 Each card has a button to "remove from library":
 onClick - delete object from array and card from page
+
+Each card has a button to change the "read" status:
+onClick - change read value (changeStatus)

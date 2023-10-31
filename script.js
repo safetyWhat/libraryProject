@@ -23,7 +23,13 @@ function Book(title, author, pages, read) {
   const dialog = document.querySelector("dialog");
   const showButton = document.querySelector("button");
   const closeButton = document.querySelector("dialog #submit");
-  const form = document.querySelector("form")
+  const newBookForm = document.querySelector("form");
+  let newTitle = document.getElementById("title");
+  let newAuthor = document.getElementById("author");
+  let newPages = document.getElementById("pages");
+  let newReadStatus = document.getElementById("read");
+
+  
 
   showButton.addEventListener("click", () => {
     dialog.showModal();
@@ -32,5 +38,8 @@ function Book(title, author, pages, read) {
   document.getElementById('submit').addEventListener('click', function(event) {
       event.preventDefault();
       dialog.close();
+      addBookToLibrary(newTitle.value , newAuthor.value, newPages.value, newReadStatus.value);
+      console.log(myLibrary);
+      newBookForm.reset();
     })
    
