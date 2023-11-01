@@ -1,4 +1,14 @@
 const myLibrary = [];
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("button");
+const closeButton = document.querySelector("dialog #submit");
+const newBookForm = document.querySelector("form");
+let newTitle = document.getElementById("title");
+let newAuthor = document.getElementById("author");
+let newPages = document.getElementById("pages");
+let newReadStatus = document.getElementById("read");
+const container = document.querySelector('.container');
+
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -11,8 +21,14 @@ function Book(title, author, pages, read) {
   }
 
   function addBookToLibrary(title, author, pages, read) {
+    console.log(myLibrary.length);
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook)
+    console.log(myLibrary.length);
+    const bookBox = document.createElement('div');
+    container.append(bookBox);
+    bookBox.setAttribute('class', 'bookBox');
+    bookBox.setAttribute('id', 'book' + myLibrary.length);
   }
   
   addBookToLibrary("The Hobbit", "J.R.R. Tolkien", "295 pages", "Read")
@@ -20,15 +36,7 @@ function Book(title, author, pages, read) {
 
   console.log(myLibrary)
 
-  const dialog = document.querySelector("dialog");
-  const showButton = document.querySelector("button");
-  const closeButton = document.querySelector("dialog #submit");
-  const newBookForm = document.querySelector("form");
-  let newTitle = document.getElementById("title");
-  let newAuthor = document.getElementById("author");
-  let newPages = document.getElementById("pages");
-  let newReadStatus = document.getElementById("read");
-
+  
   
 
   showButton.addEventListener("click", () => {
