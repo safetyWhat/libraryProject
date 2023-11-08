@@ -9,6 +9,11 @@ let newPages = document.getElementById("pages");
 let newReadStatus = document.getElementById("read");
 const container = document.querySelector('.container');
 let bookCount = 0;
+document.addEventListener('click', e => { //listens to whole document for a click on an element with the class of .bookRemove
+  if (e.target.matches('.bookRemove')) {
+    deleteBook(e.target.getAttribute('id'));
+  }
+});
 
 
 function Book(title, author, pages, read) {
@@ -22,13 +27,10 @@ function Book(title, author, pages, read) {
   }
 
 function addBookToLibrary(title, author, pages, read) {
-  //console.log(myLibrary.length);
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
 }
-  
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", "295 pages", "Read")
-addBookToLibrary("The Lord of the Rings", "J.R.R. Tolkien", "Too Many", "Reading")
+
 
 showButton.addEventListener("click", () => {
   dialog.showModal();
@@ -38,7 +40,6 @@ document.getElementById('submit').addEventListener('click', function(event) {
   event.preventDefault();
   dialog.close();
   addBookToLibrary(newTitle.value , newAuthor.value, newPages.value, newReadStatus.value);
-  console.log(myLibrary);
   newBookForm.reset();
   libraryLoop(bookCount);
 })
@@ -56,26 +57,22 @@ function displayBook(title, author, pages, read, i) {
     <button class="bookRemove" id="${i}">Delete</button>`; 
 }
 
-function libraryLoop(i) {
+const deleteBook = function(bookNum) {
+  myLibrary.splice(bookNum, 1); //Deletes book from the myLibrary array.
+  document.querySelectorAll(".bookBox").forEach(element => element.remove()); //Deletes ALL books visually.
+  libraryLoop(0); //Creates new cards for books. This allows reassignment of the delete button ids.
+}
+
+function libraryLoop(i) { //This loops through myLibrary to create visual cards for books.
   while(i < myLibrary.length) {
-    //console.log(myLibrary[i]);
     let data = myLibrary[i];
-    //console.log(data);
     let {title, author, pages, read} = data
     displayBook(title, author, pages, read, i);
     i++;
   }
   bookCount = myLibrary.length;
-  console.log(bookCount);
 }
-
-libraryLoop(bookCount);
-
-let deletionButton = document.querySelectorAll('.bookRemove');
-
-deletionButton.forEach(button => button.addEventListener('click', function() {
-  bookNum = button.getAttribute('id');
-  console.log(bookNum);
-  myLibrary.splice(bookNum, 1);
-  console.log(myLibrary)
-}));
+ 
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", "295 pages", "Read");
+addBookToLibrary("The Lord of the Rings", "J.R.R. Tolkien", "Too Many", "Reading");
+libraryLoop(bookCount); 
