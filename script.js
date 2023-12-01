@@ -34,12 +34,15 @@ document.addEventListener('click', e => {
   }
 });
 
-function Book(title, author, pages, read) {
+class Book {
+  constructor (title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.changeStatus = function(status) { //Need this function to be able to change status in the future.
+  }
+
+    changeStatus(status) { //Need this function to be able to change status in the future.
       this.read = status;
     }
   };
