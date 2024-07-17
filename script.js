@@ -7,6 +7,7 @@ let newTitle = document.getElementById("title");
 let newAuthor = document.getElementById("author");
 let newPages = document.getElementById("pages");
 let newReadStatus = document.getElementById("read");
+const ifError = document.getElementById('ifError');
 const container = document.querySelector('.container');
 let bookCount = 0;
 
@@ -56,12 +57,24 @@ showButton.addEventListener("click", () => {
   dialog.showModal();
 });
 
+const validateForm = () => {
+  
+}
+
 document.getElementById('submit').addEventListener('click', function(event) {
   event.preventDefault();
-  dialog.close();
-  addBookToLibrary(newTitle.value , newAuthor.value, newPages.value, newReadStatus.value);
-  newBookForm.reset();
-  libraryLoop(bookCount);
+  if (newTitle.value === '' || 
+    newAuthor.value === '' || 
+    newPages < 1
+  ) {
+   return ifError.innerText = 'Please complete entire form.'
+  } else {
+    ifError.innerText = ''
+    dialog.close();
+    addBookToLibrary(newTitle.value , newAuthor.value, newPages.value, newReadStatus.value);
+    newBookForm.reset();
+    libraryLoop(bookCount);
+  }
 });
 
 function displayBook(title, author, pages, read, i) { 

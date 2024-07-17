@@ -15,21 +15,22 @@
     </div>
     <div class="container">
     </div>
-     <dialog class="addBookBox">
+    <dialog class="addBookBox">
         <h3>New Book Entry</h3>
         <form id="newBookForm" action="">
             <label for="title">Title</label>
-            <input type="text" name="title" id="title" autofocus>
+            <input type="text" name="title" id="title" autofocus required>
             <label for="author">Author</label>
-            <input type="text" name="author" id="author">
+            <input type="text" name="author" id="author" required>
             <label for="pages">Number of Pages</label>
-            <input type="number" name="pages" id="pages">
+            <input type="number" name="pages" id="pages" required>
             <label for="read">Have you read this book?</label>
-            <select name="read" id="read">
+            <select name="read" id="read" required>
                 <option value="Read">Have read</option>
                 <option value="Unread">Have not read</option>
                 <option value="Reading">Currently reading</option>
             </select>
+            <span id="ifError"></span>
             <input type="submit" name="submit" id="submit">
         </form>
     </dialog>
