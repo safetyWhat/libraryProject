@@ -63,9 +63,9 @@ const validateForm = () => {
 
 document.getElementById('submit').addEventListener('click', function(event) {
   event.preventDefault();
-  if (newTitle.value === '' || 
-    newAuthor.value === '' || 
-    newPages < 1
+  if (newTitle.validity.valueMissing || 
+    newAuthor.validity.valueMissing || 
+    newPages.validity.valueMissing
   ) {
    return ifError.innerText = 'Please complete entire form.'
   } else {
